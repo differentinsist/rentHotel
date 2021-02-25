@@ -1,0 +1,19 @@
+server:
+  port: 2262
+spring:
+  application:
+    name: hotel-service
+  datasource:
+    url: jdbc:mysql:///hotel
+    username: root
+    password: qbj5201314
+  # 配置默认交换机可小写也可大写（小写变大写的快捷键是什么？ctrl+shfit+U）
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:12260/eureka
+  instance:
+    lease-renewal-interval-in-seconds: 5  # 心跳时间
+    lease-expiration-duration-in-seconds: 15       # 过期时间？
+mybatis:
+  type-aliases-package: com.rentHotel.item.pojo  #这里是扫描实体类；扫描mapper接口在引导类哪里写 mybatis别名扫描(不同的微服务了；只写包路劲就行？能扫描到？)

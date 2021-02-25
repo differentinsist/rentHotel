@@ -1,0 +1,17 @@
+server:
+  port: 12261
+spring:
+  application:
+    name: hotel-gateway
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:12260/eureka
+    registry-fetch-interval-seconds: 5  # 拉取服务的间隔时间
+zuul:
+  prefix: /api
+  routes:        # 下面这些其实就是添加路由规则
+    hotel-service: /item/**   # 路由到商品的微服务（意思是我们访问网关；就会路由到商品的页面？）
+
+
+
