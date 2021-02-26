@@ -22,8 +22,8 @@ public class RentHotelCorsConfiguration {
 //        configuration.addAllowedOrigin("http://localhost:2262/api/item/person/queryPersonByPid");
 //        configuration.addAllowedOrigin("http://localhost:1215");
 //        configuration.addAllowedOrigin("http://localhost:2262");
-        configuration.addAllowedOrigin("http://localhost:12261/api/item");
-        configuration.addAllowedOrigin("http://localhost:1215");
+        configuration.addAllowedOrigin("http://localhost:6221");
+        configuration.addAllowedOrigin("http://localhost:1215");//写前端的ip
 
         configuration.setAllowCredentials(true);//允许携带cookie
         configuration.addAllowedMethod("*");//代表所有的请求方法:GET、POST、PUT等
