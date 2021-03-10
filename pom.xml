@@ -13,6 +13,7 @@
         <module>rentHotel-gateway</module>
         <module>rentHotel-item</module>
         <module>rentHotel-common</module>
+        <module>rentHotel-upload</module>
     </modules>
 
 

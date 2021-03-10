@@ -9,6 +9,7 @@
       <module fileurl="file://$PROJECT_DIR$/rentHotel-item/rentHotel-item-interface/rentHotel-item-interface.iml" filepath="$PROJECT_DIR$/rentHotel-item/rentHotel-item-interface/rentHotel-item-interface.iml" />
       <module fileurl="file://$PROJECT_DIR$/rentHotel-item/rentHotel-item-service/rentHotel-item-service.iml" filepath="$PROJECT_DIR$/rentHotel-item/rentHotel-item-service/rentHotel-item-service.iml" />
       <module fileurl="file://$PROJECT_DIR$/rentHotel-registry/rentHotel-registry.iml" filepath="$PROJECT_DIR$/rentHotel-registry/rentHotel-registry.iml" />
+      <module fileurl="file://$PROJECT_DIR$/rentHotel-upload/rentHotel-upload.iml" filepath="$PROJECT_DIR$/rentHotel-upload/rentHotel-upload.iml" />
     </modules>
   </component>
 </project>

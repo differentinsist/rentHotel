@@ -26,7 +26,7 @@ public class HotelRoomController {
      * @param sortBy  通过什么排序
      * @param desc    降序还是升序
      * @return
-     *               api/item/room/showAllRoomMessage?page=1&rows=5&sortBy=roomprice&desc=asc
+     *  api/item/room/showAllRoomMessage?page=1&rows=5&sortBy=roomprice&desc=true(这里你必须写true或false而不是直接写升序或降序)
      */
     @GetMapping("showAllRoomMessage")
     public ResponseEntity<PageResult> showAllRoomMessage(

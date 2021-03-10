@@ -8,5 +8,6 @@
     <file url="file://$PROJECT_DIR$/rentHotel-item/rentHotel-item-interface" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/rentHotel-item/rentHotel-item-service" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/rentHotel-registry" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/rentHotel-upload" charset="UTF-8" />
   </component>
 </project>
