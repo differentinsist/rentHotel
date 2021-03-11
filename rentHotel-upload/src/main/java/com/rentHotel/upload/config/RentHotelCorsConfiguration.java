@@ -13,9 +13,10 @@ public class RentHotelCorsConfiguration {
     public CorsFilter corsFilter(){
         CorsConfiguration configuration = new CorsConfiguration();//初始化cors配置对象
         //允许跨域的域名；如果要携带cookie；就不能写* ；*代表所有的域名都可以跨域访问
-        configuration.addAllowedOrigin("http://qian.rentHoter.com");
+        configuration.addAllowedOrigin("http://qian.renthotel.com");
+        configuration.addAllowedOrigin("http://api.renthotel.com");
         configuration.addAllowedOrigin("http://localhost:6221");
-        configuration.addAllowedOrigin("http://localhost:2263");
+//        configuration.addAllowedOrigin("http://localhost:2263");
         configuration.setAllowCredentials(true);//允许携带cookie
         configuration.addAllowedMethod("*");//代表所有的请求方法:GET、POST、PUT等
         configuration.addAllowedHeader("*");

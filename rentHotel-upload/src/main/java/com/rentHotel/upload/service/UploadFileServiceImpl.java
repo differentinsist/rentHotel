@@ -19,7 +19,7 @@ import java.util.List;
 public class UploadFileServiceImpl {
 
 
-    private static final List<String> CONTENT_TYPES = Arrays.asList("image/gif", "image/jpeg"); //静态的应用场景
+    private static final List<String> CONTENT_TYPES = Arrays.asList("image/gif","image/jpeg","image/png"); //静态的应用场景
     private static final Logger LOGGER = LoggerFactory.getLogger(UploadFileServiceImpl.class);//报错时的日志
     @Autowired
     private FastFileStorageClient storageClient; //使用FastFDS改造
