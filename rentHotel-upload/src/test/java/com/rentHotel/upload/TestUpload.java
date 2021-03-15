@@ -25,7 +25,8 @@ public class TestUpload {
     @Test
     public void testUpload() throws FileNotFoundException {
         // 要上传的文件
-        File file = new File("D:\\OrmProject\\image\\tp2.jpg");
+//        File file = new File("D:\\OrmProject\\image\\tp2.jpg");
+        File file = new File("D:\\NewProject\\hotelimage\\1515151516.jpg");
         // 上传并保存图片，参数：1-上传的文件流 2-文件的大小 3-文件的后缀 4-可以不管他
         StorePath storePath = this.storageClient.uploadFile(
                 new FileInputStream(file), file.length(), "jpg", null);
@@ -38,7 +39,8 @@ public class TestUpload {
     @Test
     public void testUploadAndCreateThumb() throws FileNotFoundException {
         //File file = new File("C:\\Users\\joedy\\Pictures\\xbx1.jpg");
-        File file = new File("D:\\OrmProject\\image\\tp2.jpg");
+//        File file = new File("D:\\OrmProject\\image\\tp2.jpg");
+        File file = new File("D:\\NewProject\\hotelimage\\151515151.jpg");
         // 上传并且生成缩略图
         StorePath storePath = this.storageClient.uploadImageAndCrtThumbImage(
                 new FileInputStream(file), file.length(), "jpg", null);
