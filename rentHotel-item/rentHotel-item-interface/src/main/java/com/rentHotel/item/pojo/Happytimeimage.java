@@ -14,6 +14,7 @@ public class Happytimeimage {
     private Integer id;
     private String picture;//图片的路径
     private Date createtime; //图片创建的时间
+    private String imagetype; //图片的分类；默认是H类型；也就是开心类型
 
     public Integer getId() {
         return id;
@@ -37,5 +38,13 @@ public class Happytimeimage {
 
     public void setCreatetime(Date createtime) {
         this.createtime = createtime;
+    }
+
+    public String getImagetype() {
+        return imagetype;
+    }
+
+    public void setImagetype(String imagetype) {
+        this.imagetype = imagetype;
     }
 }

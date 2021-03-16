@@ -13,8 +13,11 @@ public class HappyTimeImageServiceImpl {
     @Autowired
     private HappyTimeImageMapper happyTimeImageMapper;
 
-    public List<Happytimeimage> queryAllHappyImages() {
-
-        return this.happyTimeImageMapper.selectAll();
+    public List<Happytimeimage> queryAllHappyImages(String imagetype,Boolean sortbytime) {
+        String sort = sortbytime ? "asc" : "desc";
+        System.out.println("--------=======sort===--"+sort);
+        System.out.println("--------=====sortbytime=====--"+sortbytime);
+//        Boolean sss = sortbytime ? "desc" : "asc";
+        return this.happyTimeImageMapper.selectImagesByTypeSortByTime(imagetype,sort);
     }
 }
