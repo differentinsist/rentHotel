@@ -15,9 +15,7 @@ public class HappyTimeImageServiceImpl {
 
     public List<Happytimeimage> queryAllHappyImages(String imagetype,Boolean sortbytime) {
         String sort = sortbytime ? "asc" : "desc";
-        System.out.println("--------=======sort===--"+sort);
-        System.out.println("--------=====sortbytime=====--"+sortbytime);
-//        Boolean sss = sortbytime ? "desc" : "asc";
+        System.out.println("------sort:--"+sort+"----sortbytime:---"+sortbytime);
         return this.happyTimeImageMapper.selectImagesByTypeSortByTime(imagetype,sort);
     }
 }
