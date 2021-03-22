@@ -2,14 +2,20 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/rentHotel-person/person-service/person-service.iml" filepath="$PROJECT_DIR$/rentHotel-person/person-service/person-service.iml" />
       <module fileurl="file://$PROJECT_DIR$/rentHotel.iml" filepath="$PROJECT_DIR$/rentHotel.iml" />
+      <module fileurl="file://$PROJECT_DIR$/rentHotel-auth/rentHotel-auth.iml" filepath="$PROJECT_DIR$/rentHotel-auth/rentHotel-auth.iml" />
+      <module fileurl="file://$PROJECT_DIR$/rentHotel-auth/rentHotel-auth-interface/rentHotel-auth-interface.iml" filepath="$PROJECT_DIR$/rentHotel-auth/rentHotel-auth-interface/rentHotel-auth-interface.iml" />
+      <module fileurl="file://$PROJECT_DIR$/rentHotel-auth/rentHotel-auth-service/rentHotel-auth-service.iml" filepath="$PROJECT_DIR$/rentHotel-auth/rentHotel-auth-service/rentHotel-auth-service.iml" />
       <module fileurl="file://$PROJECT_DIR$/rentHotel-common/rentHotel-common.iml" filepath="$PROJECT_DIR$/rentHotel-common/rentHotel-common.iml" />
       <module fileurl="file://$PROJECT_DIR$/rentHotel-gateway/rentHotel-gateway.iml" filepath="$PROJECT_DIR$/rentHotel-gateway/rentHotel-gateway.iml" />
       <module fileurl="file://$PROJECT_DIR$/rentHotel-item/rentHotel-item.iml" filepath="$PROJECT_DIR$/rentHotel-item/rentHotel-item.iml" />
       <module fileurl="file://$PROJECT_DIR$/rentHotel-item/rentHotel-item-interface/rentHotel-item-interface.iml" filepath="$PROJECT_DIR$/rentHotel-item/rentHotel-item-interface/rentHotel-item-interface.iml" />
       <module fileurl="file://$PROJECT_DIR$/rentHotel-item/rentHotel-item-service/rentHotel-item-service.iml" filepath="$PROJECT_DIR$/rentHotel-item/rentHotel-item-service/rentHotel-item-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/rentHotel-person/rentHotel-person.iml" filepath="$PROJECT_DIR$/rentHotel-person/rentHotel-person.iml" />
       <module fileurl="file://$PROJECT_DIR$/rentHotel-registry/rentHotel-registry.iml" filepath="$PROJECT_DIR$/rentHotel-registry/rentHotel-registry.iml" />
       <module fileurl="file://$PROJECT_DIR$/rentHotel-upload/rentHotel-upload.iml" filepath="$PROJECT_DIR$/rentHotel-upload/rentHotel-upload.iml" />
+      <module fileurl="file://$PROJECT_DIR$/rentHotel-person/renthotel-person-interface/renthotel-person-interface.iml" filepath="$PROJECT_DIR$/rentHotel-person/renthotel-person-interface/renthotel-person-interface.iml" />
     </modules>
   </component>
 </project>

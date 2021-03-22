@@ -12,6 +12,7 @@ zuul:
   prefix: /api
   routes:        # 下面这些其实就是添加路由规则
     hotel-service: /item/**   # 路由到商品的微服务（意思是我们访问网关；就会路由到商品的页面？）
-
+    person-service: /user/**  # 用户登录的相关数据校验的接口在这里
+    auth-service: /auth/**    # 用户的基本认证，就是生成JWT、公钥私钥、token在此服务
 
 

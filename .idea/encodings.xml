@@ -2,11 +2,18 @@
 <project version="4">
   <component name="Encoding">
     <file url="file://$PROJECT_DIR$" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/rentHotel-auth" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/rentHotel-auth/rentHotel-auth-interface" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/rentHotel-auth/rentHotel-auth-service" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/rentHotel-common" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/rentHotel-gateway" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/rentHotel-item" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/rentHotel-item/rentHotel-item-interface" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/rentHotel-item/rentHotel-item-service" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/rentHotel-person" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/rentHotel-person/person-service" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/rentHotel-person/renthotel-person-interface" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/rentHotel-person/renthotel-person-service" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/rentHotel-registry" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/rentHotel-upload" charset="UTF-8" />
   </component>
