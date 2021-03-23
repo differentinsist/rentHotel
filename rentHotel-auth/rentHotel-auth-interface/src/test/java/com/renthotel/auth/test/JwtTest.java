@@ -21,7 +21,7 @@ public class JwtTest {
 
     @Test  // 你在运行这个test里面的方法时；要把下面Before的方法注释掉；不然无法读取秘钥  把@Before注解注释就行；然后运行后面的放开
     public void testRsa() throws Exception {   // 盐
-        RsaUtils.generateKey(pubKeyPath, priKeyPath, "1234");
+        RsaUtils.generateKey(pubKeyPath, priKeyPath, "abcdeg");
     }
 
     @Before
@@ -30,14 +30,14 @@ public class JwtTest {
         this.privateKey = RsaUtils.getPrivateKey(priKeyPath);
     }
 
-    @Test
+    @Test   //生成token
     public void testGenerateToken() throws Exception {
         // 生成token
         String token = JwtUtils.generateToken(new UserInfo(1, "admin"), privateKey);
         System.out.println("token = " + token);
     }
 
-    @Test
+    @Test  //解析token从中得到用户id和用户名
     public void testParseToken() throws Exception {
         String token = "eyJhbGciOiJSUzI1NiJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJhZG1pbiJ9.kL5hFIrGZ8ctjyrsFN-AyoSdaPdP2ugW4e5neyZO6NcnBz7uvAUtkx1tDunITAIQ3mxLNT184otKlf6FlokY1e5V0nOojkdYDrWyr4GHLP_vPpLzDH_81elVwJouSDLmL18qKT_yYj25W5ayvupE8cwYohAAHV0gYORIt5X2W7U";
 

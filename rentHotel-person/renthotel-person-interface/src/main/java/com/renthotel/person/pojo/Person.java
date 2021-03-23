@@ -25,7 +25,7 @@ public class Person {
 
     private String idcard; //身份证
 
-    private String age;//年龄  实际使用什么类型好呢？
+    private Date birthday;//年龄  实际使用什么类型好呢？
 
     private String address; //地址
 
@@ -71,12 +71,12 @@ public class Person {
         this.idcard = idcard;
     }
 
-    public String getAge() {
-        return age;
+    public Date getBirthday() {
+        return birthday;
     }
 
-    public void setAge(String age) {
-        this.age = age;
+    public void setBirthday(Date birthday) {
+        this.birthday = birthday;
     }
 
     public String getAddress() {

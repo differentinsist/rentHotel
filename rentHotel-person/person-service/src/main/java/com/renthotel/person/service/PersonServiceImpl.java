@@ -7,6 +7,8 @@ import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
+
 @Service
 public class PersonServiceImpl {
 
@@ -33,12 +35,18 @@ public class PersonServiceImpl {
 
 
     //保存新祖册的用户
-    public void registerPerson(Person person) {
+    public void registerPerson(String name, String password, String idcard, Date birthday, String phone) {
         //-1.查询redis中的验证码，
 
         //0.校验验证码
 
         //1.生成盐salt（为了密码更加安全复杂）
+        Person person = new Person();
+        person.setName(name);
+        person.setPassword(password);
+        person.setIdcard(idcard);
+        person.setBirthday(birthday);
+        person.setPhone(phone);
         String salt = CodecUtils.generateSalt();
         person.setSalt(salt);
         //2.使用盐对密码进行加密      因为我在Controller层是Person对象接收参数，所以参数已经在person这个变量里面了
