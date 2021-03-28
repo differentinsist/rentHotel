@@ -2,6 +2,7 @@ package com.rentHotel.upload.service;
 
 import com.github.tobato.fastdfs.domain.StorePath;
 import com.github.tobato.fastdfs.service.FastFileStorageClient;
+import com.rentHotel.upload.client.SavePictureUrlClient;
 import org.apache.commons.lang.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -18,6 +19,10 @@ import java.util.List;
 @Service
 public class UploadFileServiceImpl {
 
+    //    feign远程调用；保存头像URL到数据库
+    @Autowired
+    private SavePictureUrlClient savePictureUrlClient;
+
 
     private static final List<String> CONTENT_TYPES = Arrays.asList("image/gif","image/jpeg","image/png"); //静态的应用场景
     private static final Logger LOGGER = LoggerFactory.getLogger(UploadFileServiceImpl.class);//报错时的日志
@@ -31,7 +36,7 @@ public class UploadFileServiceImpl {
      * @param file
      * @return
      */
-    public String uploadHeadPortrait(MultipartFile file) {
+    public String uploadHeadPortrait(MultipartFile file, String name) {
 
         String originalFilename = file.getOriginalFilename();
         //校验文件类型
@@ -53,7 +58,12 @@ public class UploadFileServiceImpl {
             StorePath storePath = this.storageClient.uploadFile(file.getInputStream(), file.getSize(),ext,null);
             //返回url；进行回显
             //return "http://image.leyou.com/" + originalFilename;
-            return "http://image.leyou.com/" + storePath.getFullPath();
+            String touxiangURL = "http://image.leyou.com/" + storePath.getFullPath();
+
+            //(在上传头像到FastDFS成功后就)保存头像URL到数据库
+            this.savePictureUrlClient.savePersonHeadPortrait(touxiangURL,name);
+
+            return touxiangURL;
         } catch (IOException e) {
             LOGGER.info("服务器内部错误：" + originalFilename);
             e.printStackTrace();
