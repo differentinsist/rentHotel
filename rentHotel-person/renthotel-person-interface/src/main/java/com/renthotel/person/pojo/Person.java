@@ -1,14 +1,14 @@
 package com.renthotel.person.pojo;
 
 import java.util.Date;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
-
-
 
 
 @Table(name = "person")
@@ -31,6 +31,7 @@ public class Person {
 
     private String phone; //电话
 
+    @JsonFormat(pattern = "yyyy年MM月dd日 HH:mm:ss", timezone = "GMT+8")
     private Date createdtime; //注册时间
 
     @JsonIgnore

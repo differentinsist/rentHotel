@@ -12,11 +12,22 @@
     <groupId>com.renHotel.item</groupId>
     <artifactId>rentHotel-item</artifactId>
     <version>1.0.0-SNAPSHOT</version>
+    <!--<packaging>jar</packaging>-->
     <packaging>pom</packaging>
     <modules>
         <module>rentHotel-item-service</module>
         <module>rentHotel-item-interface</module>
     </modules>
 
+
+
+    <!--<build>-->
+        <!--<plugins>-->
+            <!--<plugin>-->
+                <!--<groupId>org.springframework.boot</groupId>-->
+                <!--<artifactId>spring-boot-maven-plugin</artifactId>-->
+            <!--</plugin>-->
+        <!--</plugins>-->
+    <!--</build>-->
 
 </project>

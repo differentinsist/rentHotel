@@ -29,7 +29,7 @@ public class HotelGoodsServiceImpl {
         }         //通过商品名称goodsname模糊查询失败了    通过商品品牌goodsbrand就成功了；看源码好像品牌的参数都会覆盖名称参数
 
         //添加分页条件
-        PageHelper.startPage(page,rows);
+        PageHelper.startPage(page,rows);//分页要写在mapper查询方法之前；不然分页无效
         //判断是否要排序；就是看是否传递值过来
         if (StringUtils.isNotBlank(sortBy)){
             example.setOrderByClause(sortBy + " " + (desc ? "desc" : "asc"));//注意这里的""引号没有空格的话是会报错的；

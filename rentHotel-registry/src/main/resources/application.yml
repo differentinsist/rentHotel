@@ -7,6 +7,7 @@ eureka:
   client:
     service-url:
       defaultZone: http://localhost:12260/eureka
+      # defaultZone: http://8.129.187.106:12260/eureka  # 【阿里云的】
     register-with-eureka: false  # 屏蔽自己这个个服务；看不见
     fetch-registry: false        # 设置不拉取Eureka自身服务？
   server:

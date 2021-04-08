@@ -16,6 +16,11 @@ public class RentHotelCorsConfiguration {
         configuration.addAllowedOrigin("http://qian.renthotel.com");
         configuration.addAllowedOrigin("http://api.renthotel.com");
         configuration.addAllowedOrigin("http://localhost:6221");
+        configuration.addAllowedOrigin("http://8.129.187.106:6221");
+
+        configuration.addAllowedOrigin("http://localhost:80");
+        configuration.addAllowedOrigin("http://8.129.187.106:80");
+
 //        configuration.addAllowedOrigin("http://localhost:2263");
         configuration.setAllowCredentials(true);//允许携带cookie
         configuration.addAllowedMethod("*");//代表所有的请求方法:GET、POST、PUT等

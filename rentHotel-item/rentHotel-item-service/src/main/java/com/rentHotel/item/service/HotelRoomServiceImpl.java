@@ -34,7 +34,7 @@ public class HotelRoomServiceImpl {
         //模糊查询；没写
 
         //添加分页条件
-        PageHelper.startPage(page,rows);
+        PageHelper.startPage(page,rows);//分页要写在mapper查询方法之前；不然分页无效
 
         //判断是否需要排序；前端是否传递排序参数过来
         if (StringUtils.isNotBlank(sortBy)) {

@@ -25,6 +25,14 @@ public class RentHotelCorsConfiguration {
         configuration.addAllowedOrigin("http://localhost:6221");
         configuration.addAllowedOrigin("http://localhost:1215");//写前端的ip
 
+        configuration.addAllowedOrigin("http://8.129.187.106:6221");//阿里云的
+        configuration.addAllowedOrigin("http://8.129.187.106:80");//阿里云的
+        configuration.addAllowedOrigin("http://8.129.187.106:8080");//阿里云的
+
+        configuration.addAllowedOrigin("http://localhost:6221");//阿里云的
+        configuration.addAllowedOrigin("http://localhost:80");//阿里云的
+        configuration.addAllowedOrigin("http://localhost:8080");//阿里云的
+
         configuration.setAllowCredentials(true);//允许携带cookie
         configuration.addAllowedMethod("*");//代表所有的请求方法:GET、POST、PUT等
         configuration.addAllowedHeader("*");

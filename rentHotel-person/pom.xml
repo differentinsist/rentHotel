@@ -11,6 +11,7 @@
 
     <groupId>com.renHotel.person</groupId>
     <artifactId>rentHotel-person</artifactId>
+    <!--<packaging>jar</packaging>-->
     <packaging>pom</packaging>
     <modules>
         <module>renthotel-person-interface</module>
@@ -18,5 +19,14 @@
     </modules>
 
 
+
+    <!--<build>-->
+        <!--<plugins>-->
+            <!--<plugin>-->
+                <!--<groupId>org.springframework.boot</groupId>-->
+                <!--<artifactId>spring-boot-maven-plugin</artifactId>-->
+            <!--</plugin>-->
+        <!--</plugins>-->
+    <!--</build>-->
 
 </project>
