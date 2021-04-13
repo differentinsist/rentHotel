@@ -9,24 +9,14 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.renHotel.item</groupId>
-    <artifactId>rentHotel-item</artifactId>
+    <groupId>com.renHotel.parent</groupId>
+    <artifactId>rentHotel-user</artifactId>
     <version>1.0.0-SNAPSHOT</version>
     <packaging>pom</packaging>
     <modules>
-        <module>rentHotel-item-service</module>
-        <module>rentHotel-item-interface</module>
+        <module>rentHotel-user-interface</module>
+        <module>rentHotel-user-service</module>
     </modules>
 
-
-
-    <!--<build>-->
-        <!--<plugins>-->
-            <!--<plugin>-->
-                <!--<groupId>org.springframework.boot</groupId>-->
-                <!--<artifactId>spring-boot-maven-plugin</artifactId>-->
-            <!--</plugin>-->
-        <!--</plugins>-->
-    <!--</build>-->
 
 </project>

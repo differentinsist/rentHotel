@@ -16,14 +16,14 @@ eureka:
 # leyou:  # 密钥地址等放在配置文件中；不写死；然后我们写配置类读取就行；之前见过了
 renthotel:
   jwt:
-#    secret: renthotel@Login(Auth}*^31)&hotel% # 登录校验的密钥
-#    pubKeyPath: C:\\tmp\\rsa\\rsa.pub # 公钥地址
-#    priKeyPath: C:\\tmp\\rsa\\rsa.pri # 私钥地址
-#    expire: 30 # 过期时间,单位分钟
-#    cookieName: LY_TOKEN
-    # 云服务器的：
     secret: renthotel@Login(Auth}*^31)&hotel% # 登录校验的密钥
-    pubKeyPath: /tmp/rsa/rsa.pub # 公钥地址
-    priKeyPath: /tmp/rsa/rsa.pri # 私钥地址
+    pubKeyPath: C:\\tmp\\rsa\\rsa.pub # 公钥地址
+    priKeyPath: C:\\tmp\\rsa\\rsa.pri # 私钥地址
     expire: 30 # 过期时间,单位分钟
     cookieName: LY_TOKEN
+    # 云服务器的：
+#    secret: renthotel@Login(Auth}*^31)&hotel% # 登录校验的密钥
+#    pubKeyPath: /tmp/rsa/rsa.pub # 公钥地址
+#    priKeyPath: /tmp/rsa/rsa.pri # 私钥地址
+#    expire: 30 # 过期时间,单位分钟
+#    cookieName: LY_TOKEN

@@ -13,8 +13,10 @@
     <file url="file://$PROJECT_DIR$/rentHotel-person" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/rentHotel-person/person-service" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/rentHotel-person/renthotel-person-interface" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/rentHotel-person/renthotel-person-service" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/rentHotel-registry" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/rentHotel-upload" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/rentHotel-user" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/rentHotel-user/rentHotel-user-interface" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/rentHotel-user/rentHotel-user-service" charset="UTF-8" />
   </component>
 </project>

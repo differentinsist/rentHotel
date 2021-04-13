@@ -5,8 +5,8 @@ import com.renthotel.auth.client.PersonClient;
 import com.renthotel.auth.config.JwtProperties;
 import com.renthotel.common.pojo.UserInfo;
 import com.renthotel.common.utils.JwtUtils;
-import com.renthotel.person.bo.PersonBo;
-import com.renthotel.person.pojo.Person;
+import com.renthotel.user.bo.PersonBo;
+import com.renthotel.user.pojo.Person;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

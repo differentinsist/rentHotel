@@ -15,8 +15,8 @@
         <module>rentHotel-item</module>
         <module>rentHotel-common</module>
         <module>rentHotel-upload</module>
-        <module>rentHotel-person</module>
         <module>rentHotel-auth</module>
+        <module>rentHotel-user</module>
     </modules>
 
 

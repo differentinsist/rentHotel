@@ -58,7 +58,9 @@ public class UploadFileServiceImpl {
             StorePath storePath = this.storageClient.uploadFile(file.getInputStream(), file.getSize(),ext,null);
             //返回url；进行回显
             //return "http://image.leyou.com/" + originalFilename;
-            String touxiangURL = "http://image.leyou.com/" + storePath.getFullPath();
+//            String touxiangURL = "http://image.leyou.com/" + storePath.getFullPath();【本机】
+//阿里云的：            String touxiangURL = "http://8.129.187.106/" + storePath.getFullPath();
+            String touxiangURL = "http://192.168.217.128/" + storePath.getFullPath();
 
             //(在上传头像到FastDFS成功后就)保存头像URL到数据库
             this.savePictureUrlClient.savePersonHeadPortrait(touxiangURL,name);

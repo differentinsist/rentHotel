@@ -2,7 +2,7 @@ package com.renthotel.auth.controller;
 
 
 import com.renthotel.auth.service.AuthServiceImpl;
-import com.renthotel.person.bo.PersonBo;
+import com.renthotel.user.bo.PersonBo;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
