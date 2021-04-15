@@ -34,7 +34,7 @@ public class UserServiceImpl {
     }
 
 
-    //保存新祖册的用户
+    //保存新注册的用户
     public void registerPerson(String name, String password, String idcard, Date birthday, String phone) {
         //-1.查询redis中的验证码，
 

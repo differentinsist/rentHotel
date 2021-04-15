@@ -18,6 +18,16 @@
         <module>rentHotel-item-interface</module>
     </modules>
 
+    <!--依赖我写在聚合工程这里了；不会有问题吧-->
+    <dependencies>
+        <!--这个版本对吗 自己添加的-->
+        <dependency>
+            <groupId>org.hibernate.validator</groupId>
+            <artifactId>hibernate-validator</artifactId>
+            <version>6.0.8.Final</version>
+        </dependency>
+    </dependencies>
+
 
 
     <!--<build>-->

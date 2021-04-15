@@ -16,6 +16,7 @@ public class Hotelroom {
     private BigDecimal roomprice; //金钱价格的数据类型在数据库中可以使用decimal(对应BigDecimal)或bigint(对应BigInteger)
     private String roompicture;  //房间照片的URI路径
     private String roomtime;  //房间时长
+    private Boolean btnstatus; //控制显示按钮还是显示倒计时
 
     public Integer getRid() {
         return rid;
@@ -55,5 +56,13 @@ public class Hotelroom {
 
     public void setRoomtime(String roomtime) {
         this.roomtime = roomtime;
+    }
+
+    public Boolean getBtnstatus() {
+        return btnstatus;
+    }
+
+    public void setBtnstatus(Boolean btnstatus) {
+        this.btnstatus = btnstatus;
     }
 }

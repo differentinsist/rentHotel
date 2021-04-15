@@ -80,4 +80,11 @@ public class UserController {
         }
         return ResponseEntity.ok(person);
     }
+
+
+    //根据用户id查询用户
+    public ResponseEntity<Person> findPersonBy(){
+        return null;
+    }
+
 }

@@ -4,7 +4,9 @@ import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.rentHotel.common.pojo.PageResult;
 import com.rentHotel.item.mapper.HotelRoomMapper;
+import com.rentHotel.item.mapper.SaveRoomOrdersHistoryToDatabaseMapper;
 import com.rentHotel.item.pojo.Hotelroom;
+import com.rentHotel.item.pojo.RoomOrdersHistory;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -17,6 +19,8 @@ public class HotelRoomServiceImpl {
 
     @Autowired
     private HotelRoomMapper hotelRoomMapper;
+    @Autowired
+    private SaveRoomOrdersHistoryToDatabaseMapper roomHistoryMapper;
 
 
     /**查询所有的房间信息（分页+排序）  后面再做模糊查询
@@ -53,5 +57,16 @@ public class HotelRoomServiceImpl {
         //上面其实就是使用构造方法new对象；构造方法就是我们实体类写的那几个有参无参构造方法；看需要返回什么数据；传递参数进来就行。
         //基本的构造方法
 
+    }
+
+
+    //根据用户（表）的id查出用户的开发历史记录
+    public List<RoomOrdersHistory> queryAllHistoryByUserId(Integer userid) {
+        Example example = new Example(RoomOrdersHistory.class);
+        Example.Criteria criteria = example.createCriteria();
+        criteria.andEqualTo("userid",userid);
+        List<RoomOrdersHistory> roomList = this.roomHistoryMapper.selectByExample(example);
+        System.out.println("看看历史对象"+roomList);
+        return roomList;
     }
 }
