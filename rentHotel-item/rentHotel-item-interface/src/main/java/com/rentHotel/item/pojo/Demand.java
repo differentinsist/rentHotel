@@ -17,6 +17,8 @@ public class Demand {
     @GeneratedValue(strategy = GenerationType.IDENTITY)//表示主键自动生成策略;一般和@id一起使用
     private Long id;
 
+    private Integer userid;
+
     private String dname;
 
     @JsonFormat(pattern = "yyyy年MM月dd日 HH:mm:ss", timezone = "GMT+8")
@@ -66,11 +68,19 @@ public class Demand {
         this.status = status;
     }
 
+    public Integer getUserid() {
+        return userid;
+    }
+
+    public void setUserid(Integer userid) {
+        this.userid = userid;
+    }
 
     @Override
     public String toString() {
         return "Demand{" +
                 "id=" + id +
+                ", userid=" + userid +
                 ", dname='" + dname + '\'' +
                 ", createtime=" + createtime +
                 ", demand='" + demand + '\'' +

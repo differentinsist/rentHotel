@@ -35,7 +35,7 @@ public class UserServiceImpl {
 
 
     //保存新注册的用户
-    public void registerPerson(String name, String password, String idcard, Date birthday, String phone) {
+    public Integer registerPerson(String name, String password, String idcard, Date birthday, String phone) {
         //-1.查询redis中的验证码，
 
         //0.校验验证码
@@ -58,7 +58,18 @@ public class UserServiceImpl {
         //String PIDstr = Integer.toString(pidadd);//(方法2)
 //        String PIDstr = String.valueOf(pidadd);    //(方法3)直接使用String类的静态方法，只产生一个对象
         //person.setPid(PIDstr); //就是我数据库定义有一个pid字段（最后我把数据库的这个字段删除了）
-        this.userMapper.insertSelective(person);
+
+        //通用mapper的自带方法：
+        Integer result = this.userMapper.insertSelective(person);
+
+
+        //自定义的mapper
+//        if(birthday == null){
+//            Integer result = this.userMapper.insertIntoUserToPerson2(name,password,idcard,phone);
+//            return result;  //用户注册时没有填birthday参数
+//        }
+//        Integer result = this.userMapper.insertIntoUserToPerson1(name,password,idcard,birthday,phone);
+        return result;
     }
 
     //查询用户的名字和密码是否正确，正确就运行登陆 （注意用户登陆时输入的密码是没加密的的原始密码，那我们比较密码是否正确，思路是通
@@ -77,6 +88,24 @@ public class UserServiceImpl {
             return person;
         }
         return null;       //查询单个用户使用的是selectOne()这个方法；select()这个的话返回的是List集合
+    }
+
+
+    //根据用户id找用户名或改用户名
+    public Person findAndAlterPersonById(Integer userid,String fieldName, String fieldValue) {
+
+        System.out.println("看看fieldName是不是字段名："+fieldName);
+        //修改后再查询用户对象，因为名字变了，重新在获取到前端更新数据
+        Integer count = this.userMapper.alterPersonNameById(userid, fieldName, fieldValue);
+
+        if(count == 0){
+            return null;  //修改用户名失败
+        }
+        //重新查询用户对象
+
+        Person person = this.userMapper.selectOne(new Person(userid));
+        System.out.println("看看修改名字后的person对象"+person);
+        return person;
     }
 }
 

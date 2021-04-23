@@ -24,10 +24,7 @@ public class RoomOrdersToRedisAndDatabaseService {
     @Autowired
     private HotelRoomMapper hotelRoomMapper;
 
-
-
     //应该还有在此方法添加一个删除redis中房间信息的功能；当然抽取出俩也行。
-
     //用户点击房间的下单按钮；确定后就保存到redis中，（下面两个方法可以合并到这里；这样就不用发这么多请求了）
     public void saveOrdersToDatabaseAndRedis(RoomOrdersHistory roomOrdersHistory, Integer id) {
         //String str = id + "_" + roomid;  //(id是用户peson表的id,唯一不变)合并在一起作为键保存？
@@ -48,6 +45,14 @@ public class RoomOrdersToRedisAndDatabaseService {
         System.out.println("看看是截取"+roomOrdersHistory.getRoomtime()+"成:"+outTime+"有小数点的截取一点会差别大");
         this.redisTemplate.opsForValue()
                 .set(roomOrdersHistory.getRoomid(),roomOrdersHistory.getRoomtime(),outTime, TimeUnit.MINUTES);
+
+        //自定义几个测试看看是否收到过期通知
+//        this.redisTemplate.opsForValue().set("100","100的value",10,TimeUnit.SECONDS);
+//        this.redisTemplate.opsForValue().set("101","101的value",15,TimeUnit.SECONDS);
+//        this.redisTemplate.opsForValue().set("102","102的value",10,TimeUnit.SECONDS);
+//        this.redisTemplate.opsForValue().set("103","103的value",15,TimeUnit.SECONDS);
+//        this.redisTemplate.opsForValue().set("104","103的value",20,TimeUnit.SECONDS);
+
 
         //在房间号保存到redis中后，同时去mysql数据库改变btnstatus的状态值
         Boolean status = !roomOrdersHistory.getButtonstatus();
@@ -84,20 +89,20 @@ public class RoomOrdersToRedisAndDatabaseService {
     public String findRoomMessageRedis(String redisKeyString) {
         //从redis中找有无此key，没有就代表时长到期了，退房了。
         String resultStr = this.redisTemplate.opsForValue().get(redisKeyString);
-        System.out.println("看看redis== "+resultStr);//取出来的是值，也即是时长;如果没有返回的是null，不会报错
+        System.out.println("看看redis中当前房间过期时间(小时):"+resultStr);//取出来的是值，也即是时长;如果没有返回的是null，不会报错
 
         if(resultStr == null){
-            return "从redis中没有找到这个key,说明过期了或者之前没有保存成功";
+//            return "从redis中没有找到这个key,说明过期了或者之前没有保存成功";
+            return "666";
         }
 
         // 根据key获取过期时间 (我是想在点击[显示时间]按钮弹出多久可用的对话框,实现不了实时倒计时？？？？只能通过对话框方式了)
         Long expire = redisTemplate.getExpire(redisKeyString);
         String expireTime = expire + "";
-
         return expireTime;
     }
 
-    //找出所有的key；从redis中；这些key就代表已经被人住的房间。
+    //找出所有的key；从redis中；这些key就代表已经被人住的房间。  【这个好像没使用到】
     public void queryAllRoomidFromRedis() {
         //其实就是只能指定key的失效时间；不能指定Value的
         Set<String> keys = redisTemplate.keys("*");
@@ -123,6 +128,7 @@ public class RoomOrdersToRedisAndDatabaseService {
 //        return redisTemplate.hasKey(key);
 //    }
 
+    //【我数据库设置的房间时常必须1小时起步、且没有小数点，这就是弊端】
     //从String类型的时间中截取出数字来;我测试过了;不太行,有小数点的就直接去掉了,不太好,比如"2.0小时"就会变为20小时,0.2也会变成2。
     public static Long tirmNumberFromString(String str){
         str = str.trim();

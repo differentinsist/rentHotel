@@ -9,14 +9,19 @@ spring:
     username: root
     password: qbj5201314
   redis:
-    host: 192.168.217.128
-    database: 1     # 配置选哪个库,redis有16个库0-15，默认第一个也就是0,我自己配置1;不然一堆太乱了，还可以怎么配置？
+      host: 127.0.0.1
+      port: 6777
+      password: QBJqbj5201314..y.u.n
+      database: 1
+#  redis:
+#    host: 192.168.217.128
+#    database: 1     # 配置选哪个库,redis有16个库0-15，默认第一个也就是0,我自己配置1;不然一堆太乱了，还可以怎么配置？
   # 配置默认交换机可小写也可大写（小写变大写的快捷键是什么？ctrl+shfit+U）  设置数据库存入服务的字符编码
 eureka:
   client:
     service-url:
       defaultZone: http://localhost:12260/eureka
-      # defaultZone: http://8.129.187.106:12260/eureka  【阿里云】
+      # defaultZone: http://8.129.187.106:12260/eureka  【阿里云】使用localhost也可以
   instance:
     lease-renewal-interval-in-seconds: 5  # 心跳时间
     lease-expiration-duration-in-seconds: 15       # 过期时间？

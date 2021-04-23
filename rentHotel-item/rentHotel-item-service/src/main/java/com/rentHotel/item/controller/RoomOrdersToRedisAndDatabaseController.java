@@ -50,7 +50,6 @@ public class RoomOrdersToRedisAndDatabaseController {
             @RequestParam("id")Integer id
         ){
         //这么多参数一个个校验null吗？还是写个对象？但是对象的属性也全都不能为null啊，这是要求
-
         System.out.println("Controller层看前端参数："+roomOrdersHistory);
         System.out.println("Controller层看前端参数id："+id);
         if(id == null){
@@ -75,11 +74,13 @@ public class RoomOrdersToRedisAndDatabaseController {
         }
         String queryResult = this.roomOrdersService.findRoomMessageRedis(redisKeyString);
 
-        //有必要做校验吗？
-        if(StringUtils.isBlank(queryResult)){
-            return ResponseEntity.badRequest().build();
+        System.out.println("redis中查如果cha不到这个key返回的是什么"+queryResult);
+        //有必要做校验吗？  redis中查不到返回的是什么
+//        if(StringUtils.isBlank(queryResult)){
+        if(queryResult == "666"){
+            System.out.println("redis中查不到这个key返回的是什么:"+queryResult);
+            return ResponseEntity.ok(queryResult);  // data=666
         }
-
         return ResponseEntity.ok(queryResult);  //返回结果是怎样的结构，有状态码有结果吧？？
 //        redis中通过键找，找不到的话返回的是null(对于String类型来说的)，而且返回状态码一样是201
     }
@@ -93,9 +94,7 @@ public class RoomOrdersToRedisAndDatabaseController {
      */
     @RequestMapping("queryAllRoomFromRedis")
     public ResponseEntity<Void> queryAllRoomidFromRedis(@RequestParam("id")Integer id){
-
         this.roomOrdersService.queryAllRoomidFromRedis();
-
         return ResponseEntity.status(HttpStatus.CREATED).build();
     }
 

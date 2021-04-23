@@ -41,6 +41,13 @@ public class Person {
 
     private String personpicture; //用户头像的URL路径
 
+    public Person(){}
+
+    public Person(Integer id){
+        this.id = id;
+    }
+
+
 
     public Integer getId() {
         return id;
@@ -120,6 +127,20 @@ public class Person {
 
     public void setSalt(String salt) {
         this.salt = salt;
+    }
+
+    @Override
+    public String toString() {
+        return "Person{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", idcard='" + idcard + '\'' +
+                ", birthday=" + birthday +
+                ", address='" + address + '\'' +
+                ", phone='" + phone + '\'' +
+                ", createdtime=" + createdtime +
+                ", personpicture='" + personpicture + '\'' +
+                '}';
     }
 }
 

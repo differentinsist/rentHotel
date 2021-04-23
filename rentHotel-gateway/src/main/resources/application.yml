@@ -11,7 +11,7 @@ eureka:
   client:
     service-url:
       defaultZone: http://localhost:12260/eureka
-      # defaultZone: http://8.129.187.106:12260/eureka # 【阿里云的】
+      # defaultZone: http://8.129.187.106:12260/eureka # 【阿里云的】改不改都可以
     registry-fetch-interval-seconds: 5  # 拉取服务的间隔时间
 zuul:
   prefix: /api

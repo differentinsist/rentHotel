@@ -37,7 +37,7 @@ public class UserDemandServiceImpl {
 //    }
     //展示所有的需求列表数据 (想一下如果自己写语句；如何实现，如何写mapper层)
     public PageResult<Demand> queryAllUserDemand(
-            Integer page, Integer rows,String sortBy,Integer status,String dname, Boolean desc) {
+            Integer page, Integer rows,String sortBy,Integer status,Integer userid, Boolean desc) {
         //初始化example对象
         Example example = new Example(Demand.class);
         Example.Criteria criteria = example.createCriteria();
@@ -45,8 +45,8 @@ public class UserDemandServiceImpl {
             criteria.orEqualTo("status",status);//注意这里的""引号没有空格的话是会报错的；
             // 因为相当于语句拼接； select xx from xx order by sortBy desc/asc (记得空格)
         }
-        if ( dname != null ){
-            criteria.andEqualTo("dname",dname);
+        if ( userid != null ){
+            criteria.andEqualTo("userid",userid);
             // 因为相当于语句拼接； select xx from xx order by sortBy desc/asc (记得空格)
         }
 
@@ -73,8 +73,8 @@ public class UserDemandServiceImpl {
 
 
     //保存用户的需求（）
-    public void saveUserDemand(String dname,String demand,Integer status) {
-        this.userDemandMapper.saveUserDemand(dname,demand,status);
+    public void saveUserDemand(Integer userid,String dname, String demand,Integer status) {
+        this.userDemandMapper.saveUserDemand(userid,dname,demand,status);
         System.out.println("保存用户的需求到数据库了吧---------"+demand);
     }
 

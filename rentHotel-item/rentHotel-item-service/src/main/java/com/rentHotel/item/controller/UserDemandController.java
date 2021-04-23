@@ -36,14 +36,14 @@ public class UserDemandController {
      */
     @GetMapping("queryAllUserDemand")
     public ResponseEntity<PageResult<Demand>> queryAllUserDemand(
-            @RequestParam(value = "page", defaultValue = "1")Integer page,
-            @RequestParam(value = "rows", defaultValue = "8")Integer rows,
-            @RequestParam(value = "sortBy", defaultValue = "createtime")String sortBy,
-            @RequestParam(value = "status", defaultValue = "1")Integer status,
-            @RequestParam(value = "dname", required = false)String dname,
-            @RequestParam(value = "desc", required = false)Boolean desc
+            @RequestParam(name = "page", defaultValue = "1")Integer page,
+            @RequestParam(name = "rows", defaultValue = "8")Integer rows,
+            @RequestParam(name = "sortBy", defaultValue = "createtime")String sortBy,
+            @RequestParam(name = "status", defaultValue = "1")Integer status,
+            @RequestParam(name = "userid",required = false)Integer userid,
+            @RequestParam(name = "desc", required = false)Boolean desc
     ){
-        PageResult<Demand> demandList = this.userDemandService.queryAllUserDemand(page,rows,sortBy,status,dname,desc);
+        PageResult<Demand> demandList = this.userDemandService.queryAllUserDemand(page,rows,sortBy,status,userid,desc);
 
         List<Demand> orginDemadList =  demandList.getItems();
         List<Demand> newDemandList = UserDemandServiceImpl.addNameToDemand(orginDemadList);
@@ -66,14 +66,15 @@ public class UserDemandController {
      */
     @GetMapping("saveUserDemand")
     public ResponseEntity<Void> saveUserDemand(
-            @RequestParam(name = "dname", defaultValue = "匿名用户")String dname,
+            @RequestParam(name = "userid")Integer userid,
+            @RequestParam(name = "dname")String dname,
             @RequestParam("demand")String demand,
             @RequestParam(name = "status", defaultValue = "1")Integer status
     ){
         if (StringUtils.isBlank(demand)){
             return ResponseEntity.badRequest().build();  //写反了吗
         }
-        this.userDemandService.saveUserDemand(dname,demand,status);
+        this.userDemandService.saveUserDemand(userid,dname,demand,status);
         return ResponseEntity.status(HttpStatus.CREATED).build(); //这样写返回？？？
     }
 

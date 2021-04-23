@@ -20,6 +20,10 @@ public interface UserDemandMapper extends Mapper<Demand> {
     //保存用户提出的需求，status默认为1
 //    @Insert("INSERT INTO demand(dname,demand,status)VALUES(#{dname},#{demand},#{status})") 注意这里有问题,可能会导致
     //数据库的内容多个双引号
-    @Insert("INSERT INTO demand(dname,demand,status)VALUES(#{dname},#{demand},${status})")
-    void saveUserDemand(@Param("dname")String dname, @Param("demand")String demand,@Param("status")Integer status );
+    @Insert("INSERT INTO demand(userid,dname,demand,status)VALUES(#{userid},#{dname},#{demand},${status})")
+    void saveUserDemand(
+            @Param("userid")Integer userid,
+            @Param("dname")String dname,
+            @Param("demand")String demand,
+            @Param("status")Integer status );
 }

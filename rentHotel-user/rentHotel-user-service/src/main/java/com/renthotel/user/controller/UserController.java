@@ -2,6 +2,7 @@ package com.renthotel.user.controller;
 
 import com.renthotel.user.pojo.Person;
 import com.renthotel.user.service.UserServiceImpl;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -55,11 +56,16 @@ public class UserController {
     public ResponseEntity<Void> registerPerson(
             @RequestParam(name = "username")String name,
             @RequestParam("password")String password,
-            @RequestParam(name = "idcard")String idcard,
+            @RequestParam(name = "idcard" ,required = false)String idcard,
             @RequestParam(name = "birthday", required = false)Date birthday,
             @RequestParam(name = "phone", required = false)String phone
     ){
-        this.userService.registerPerson(name,password,idcard,birthday,phone);
+        System.out.println("打印birthday参数看看没传递是null吗："+birthday);
+        Integer result =  this.userService.registerPerson(name,password,idcard,birthday,phone);
+        if(result < 0){
+            return ResponseEntity.badRequest().build();  //result是受影响的条数;你插入一条数据返回值就是1;
+        }
+        System.out.println("打印防护值看看受影响的条数是1吗:"+result);
         return ResponseEntity.status(HttpStatus.CREATED).build(); //就是返回值为Void的话就写这种对吧
     }
 
@@ -82,9 +88,40 @@ public class UserController {
     }
 
 
-    //根据用户id查询用户
-    public ResponseEntity<Person> findPersonBy(){
-        return null;
+
+    /**  根据用户id获取用户基本数据 + 修改用户的基本信息
+     *
+     * @param userid
+     * @param username
+     * @param phone  后面还要检验字段，电话不能使用中文，只能用数字；看你使用hibernate validate框架校验还是啥？
+     * @param address
+     * @return
+     */
+//    @GetMapping("findAndAlterPersonById")
+//    public ResponseEntity<Person> findAndAlterPersonById(
+//            @RequestParam("userid")Integer userid,
+//            @RequestParam(name = "username", required = false)String username,
+//            @RequestParam(name = "phone", required = false)String phone,
+//            @RequestParam(name = "address", defaultValue = "广州市")String address
+//    ){        【实现动态改变值】一次修改一个值，刚好username\phone\address都是字符串
+    @GetMapping("findAndAlterPersonById")
+    public ResponseEntity<Person> findAndAlterPersonById(
+            @RequestParam("userid")Integer userid,
+            @RequestParam("fieldName")String fieldName,
+            @RequestParam("fieldValue")String fieldValue
+    ){
+        if(userid == null){
+            return ResponseEntity.badRequest().build();
+        }
+
+        Person person = this.userService.findAndAlterPersonById(userid, fieldName, fieldValue);
+        return ResponseEntity.ok(person);
     }
+
+
+
+
+
+
 
 }
